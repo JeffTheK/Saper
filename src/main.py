@@ -31,14 +31,14 @@ class Tile(Button):
 class BoardScreen(Screen):
     tiles = []
     nearby_bombs_colors = {
-        1: (1, 1, 1, 1),
+        1: (0, 0, 0, 1),
         2: (0, 0, 1, 1),
         3: (0, 1, 0, 1),
-        4: (1, 0, 0, 0),
-        5: (0.75, 0, 0),
-        6: (0.75, 0, 0),
-        7: (0.75, 0, 0),
-        8: (0.75, 0, 0),
+        4: (1, 0, 0, 1),
+        5: (0, 0, 0, 1),
+        6: (0, 0, 0, 1),
+        7: (0, 0, 0, 1),
+        8: (0, 0, 0, 1),
     }
 
     def setup(self, cols, rows, bomb_chance):
@@ -89,11 +89,10 @@ class BoardScreen(Screen):
             if self.get_tile_at(pos[0], pos[1]) != None and self.get_tile_at(pos[0], pos[1]).is_bomb:
                 count += 1
 
+        print(count)
         return count
     
     def reveal_non_bomb_tile(self, col, row):
-        positions = [(col + 1, row), (col - 1, row), (col, row + 1), (col, row - 1),
-        (col + 1, row + 1), (col - 1, row - 1), (col + 1, row - 1), (col - 1, row + 1)]
         tile = self.get_tile_at(col, row)
         tile.background_color = (0, 0, 0, 0)
         nearby_bombs_count = self.count_nearby_bombs(col, row)
