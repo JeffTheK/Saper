@@ -5,7 +5,7 @@
 
 ## Запуск
 
-Перед запуском перевірте що у вас встановлен [kivy](https://www.google.com/search?channel=fs&client=ubuntu&q=kivy)
+Перед запуском перевірте що у вас встановлен [kivy](https://kivy.org/)
 
 Щоб запустити гру запустіть файл `src/main.py` або введіть команду `make run` якщо у вас є GNU Make
 
