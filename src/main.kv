@@ -8,6 +8,10 @@ WindowManager:
         id: board_screen
         name: "board"
         manager: "screen_manager"
+    ScoreScreen:
+        id: score_screen
+        name: "score"
+        manager: "screen_manager"
 
 <Tile>:
     color: 0, 0, 0, 1
@@ -53,4 +57,16 @@ WindowManager:
                 text: "30"
         Button:
             text: "New Game"
-            on_press: app.root.current = "board";  app.root.get_screen("board").setup(int(width_input.text), int(height_input.text), int(bomb_chance_input.text))
+            on_press: app.root.current = "board"; app.root.get_screen("board").setup(int(width_input.text), int(height_input.text), int(bomb_chance_input.text))
+
+<ScoreScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Score"
+        Label:
+            id: cleared_tiles_label
+            text: "Cleared tiles"
+        Label:
+            id: correctly_guessed_bombs_label
+            text: "Correctly guessed bombs"
