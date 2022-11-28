@@ -9,7 +9,21 @@ WindowManager:
         name: "board"
         manager: "screen_manager"
 
+<Tile>:
+    color: 0, 0, 0, 1
+    font_size: dp(40)
+
+<WhiteBackground@Widget>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
 <BoardScreen>:
+    WhiteBackground:
+
     GridLayout:
         id: layout
 
