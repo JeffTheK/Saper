@@ -2,8 +2,12 @@ from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.button import Button
+from kivy.uix.image import Image
 from kivy.metrics import dp
+from kivy.config import Config
 import random
+
+Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
 class Score:
     def __init__(self, total_tiles, bombs_count) -> None:
@@ -71,6 +75,9 @@ class BoardScreen(Screen):
 
     def flag_tile(self, col, row):
         tile = self.get_tile_at(col, row)
+        icon = Image(source="icons/flag.png", size=(tile.width / 1.5, tile.height / 1.5))
+        icon.pos = (tile.x + tile.width / 2 - icon.width / 2, tile.y + tile.height / 2 - icon.height / 2)
+        tile.add_widget(icon)
         if tile.is_bomb:
             self.score.correctly_guessed_bombs += 1
 
