@@ -27,6 +27,8 @@ class Tile(Button):
     def __init__(self, is_bomb, **kwargs):
         super().__init__(**kwargs)
         self.is_bomb = is_bomb
+        self.is_flagged = False
+        self.is_revealed = False
 
 class BoardScreen(Screen):
     tiles = []
@@ -76,11 +78,23 @@ class BoardScreen(Screen):
 
     def flag_tile(self, col, row):
         tile = self.get_tile_at(col, row)
-        icon = Image(source="icons/flag.png", size=(tile.width / 1.5, tile.height / 1.5))
-        icon.pos = (tile.x + tile.width / 2 - icon.width / 2, tile.y + tile.height / 2 - icon.height / 2)
-        tile.add_widget(icon)
-        if tile.is_bomb:
-            self.score.correctly_guessed_bombs += 1
+
+        if tile.is_revealed:
+            return
+
+        if tile.is_flagged:
+            tile.is_flagged = False
+            tile.remove_widget(tile.icon)
+            if tile.is_bomb:
+                self.score.correctly_guessed_bombs -= 1
+        else:
+            tile.is_flagged = True
+            icon = Image(source="icons/flag.png", size=(tile.width / 1.5, tile.height / 1.5))
+            icon.pos = (tile.x + tile.width / 2 - icon.width / 2, tile.y + tile.height / 2 - icon.height / 2)
+            tile.icon = icon
+            tile.add_widget(icon)
+            if tile.is_bomb:
+                self.score.correctly_guessed_bombs += 1
 
     def count_nearby_bombs(self, col, row) -> int:
         print("kek" + str(col) + " " + str(row))
@@ -112,6 +126,7 @@ class BoardScreen(Screen):
     
     def reveal_tile(self, col, row):
         tile = self.get_tile_at(col, row)
+        tile.is_revealed = True
         if tile.is_bomb:
             tile.background_color = (1, 0, 0, 1)
             tile.parent.parent.on_game_over()
