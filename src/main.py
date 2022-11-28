@@ -137,25 +137,40 @@ class BoardScreen(Screen):
         return count
     
     def reveal_non_bomb_tile(self, col, row):
+        positions = [
+            (col + 1, row),
+            (col - 1, row),
+            (col, row + 1),
+            (col, row - 1),
+        ]
+
         tile = self.get_tile_at(col, row)
+        if tile.is_bomb or tile.is_revealed:
+            return
+
+        tile.is_revealed = True
         tile.background_color = (0, 0, 0, 0)
         nearby_bombs_count = self.count_nearby_bombs(col, row)
         if (nearby_bombs_count > 0):
             tile.text = str(self.count_nearby_bombs(col, row))
             tile.color = self.nearby_bombs_colors[nearby_bombs_count]
+        else:
+            for pos in positions:
+                if self.get_tile_at(pos[0], pos[1]) != None:
+                    self.reveal_non_bomb_tile(pos[0], pos[1])
         self.score.cleared_tiles += 1
     
     def reveal_tile(self, col, row):
         tile = self.get_tile_at(col, row)
-        tile.is_revealed = True
         if tile.is_bomb:
             tile.background_color = (1, 0, 0, 1)
             App.get_running_app().root.get_screen("board").on_game_over()
+            tile.is_revealed = True
         else:
             self.reveal_non_bomb_tile(col, row)
 
     def get_tile_at(self, col, row) -> Tile:
-        if row > self.ids.layout.rows - 1 or col > self.ids.layout.cols - 1:
+        if row > self.ids.layout.rows - 1 or col > self.ids.layout.cols - 1 or row < 0 or col < 0:
             return None
         else:
             return self.tiles[col][row]
