@@ -15,8 +15,8 @@ class ScoreScreen(Screen):
     score: Score = None
 
     def on_enter(self):
-        self.ids.cleared_tiles_label.text += f" {self.score.cleared_tiles}/{self.score.total_tiles - self.score.bombs_count}"
-        self.ids.correctly_guessed_bombs_label.text += f" {self.score.correctly_guessed_bombs}/{self.score.bombs_count}"
+        self.ids.cleared_tiles_label.text = f"Cleared tiles: {self.score.cleared_tiles}/{self.score.total_tiles - self.score.bombs_count}"
+        self.ids.correctly_guessed_bombs_label.text = f"Correctly guessed bombs: {self.score.correctly_guessed_bombs}/{self.score.bombs_count}"
 
 class Tile(Button):
     def __init__(self, is_bomb, **kwargs):
@@ -31,6 +31,7 @@ class BoardScreen(Screen):
             for col in self.tiles:
                 for tile in col:
                     self.ids.layout.remove_widget(tile)
+            self.tiles = []
         self.ids.layout.cols = cols
         self.ids.layout.rows = rows
         self.bomb_chance = bomb_chance
