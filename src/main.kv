@@ -1,0 +1,35 @@
+WindowManager:
+    id: screen_manager
+    MainScreen:
+        id: main_screen
+        name: "main"
+        manager: "screen_manager"
+    BoardScreen:
+        id: board_screen
+        name: "board"
+        manager: "screen_manager"
+
+<BoardScreen>:
+    GridLayout:
+        id: layout
+
+<MainScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "width"
+            TextInput:
+                id: width_input
+                text: "5"
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "height"
+            TextInput:
+                id: height_input
+                text: "5"
+        Button:
+            text: "New Game"
+            on_press: app.root.current = "board";  app.root.get_screen("board").setup(int(width_input.text), int(height_input.text))
