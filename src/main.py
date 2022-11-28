@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.button import Button
+from kivy.metrics import dp
 import random
 
 class Score:
@@ -25,6 +26,16 @@ class Tile(Button):
 
 class BoardScreen(Screen):
     tiles = []
+    nearby_bombs_colors = {
+        1: (1, 1, 1, 1),
+        2: (0, 0, 1, 1),
+        3: (0, 1, 0, 1),
+        4: (1, 0, 0, 0),
+        5: (0.75, 0, 0),
+        6: (0.75, 0, 0),
+        7: (0.75, 0, 0),
+        8: (0.75, 0, 0),
+    }
 
     def setup(self, cols, rows, bomb_chance):
         if self.tiles != None:
@@ -80,7 +91,10 @@ class BoardScreen(Screen):
             tile.parent.parent.on_game_over()
         else:
             tile.background_color = (0, 0, 0, 0)
-            tile.text = str(self.count_nearby_bombs(col, row))
+            nearby_bombs_count = self.count_nearby_bombs(col, row)
+            if (nearby_bombs_count > 0):
+                tile.text = str(self.count_nearby_bombs(col, row))
+                tile.color = self.nearby_bombs_colors[nearby_bombs_count]
             self.score.cleared_tiles += 1
 
     def get_tile_at(self, col, row) -> Tile:
