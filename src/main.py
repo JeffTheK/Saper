@@ -59,7 +59,7 @@ class BoardScreen(Screen):
                     bombs_count += 1
                 tile = Tile(is_bomb)
                 tile.bind(on_touch_down=lambda _, touch, c=col, r=row: self.on_tile_touch_down(c, r, touch))
-                tile.text = str(col) + " " + str(row)
+                #tile.text = str(col) + " " + str(row)
                 self.tiles[col].append(tile)
                 self.ids.layout.add_widget(tile)
         self.score = Score(cols * rows, bombs_count)
