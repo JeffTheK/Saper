@@ -44,6 +44,13 @@ WindowManager:
             TextInput:
                 id: height_input
                 text: "5"
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "bomb chance"
+            TextInput:
+                id: bomb_chance_input
+                text: "30"
         Button:
             text: "New Game"
-            on_press: app.root.current = "board";  app.root.get_screen("board").setup(int(width_input.text), int(height_input.text))
+            on_press: app.root.current = "board";  app.root.get_screen("board").setup(int(width_input.text), int(height_input.text), int(bomb_chance_input.text))

@@ -12,16 +12,31 @@ class Tile(Button):
 class BoardScreen(Screen):
     tiles = []
 
-    def setup(self, cols, rows):
+    def setup(self, cols, rows, bomb_chance):
         self.ids.layout.cols = cols
         self.ids.layout.rows = rows
+        self.bomb_chance = bomb_chance
         for col in range(cols):
             self.tiles.append([])
             for row in range(rows):
-                tile = Tile(bool(random.getrandbits(1)))
-                tile.bind(on_press=lambda _, c=col, r=row: self.reveal_tile(c, r))
+                is_bomb = random.randrange(0, 100) <= self.bomb_chance
+                tile = Tile(is_bomb)
+                tile.bind(on_touch_down=lambda _, touch, c=col, r=row: self.on_tile_touch_down(c, r, touch))
                 self.tiles[col].append(tile)
                 self.ids.layout.add_widget(tile)
+
+    def on_tile_touch_down(self, col, row, touch):
+        tile = self.get_tile_at(col, row)
+        if not tile.collide_point(*touch.pos):
+            return
+
+        if touch.button == "left":
+            self.reveal_tile(col, row)
+        elif touch.button == "right":
+            self.flag_tile(col ,row)
+
+    def flag_tile(self, col, row):
+        print("Flag")
 
     def count_nearby_bombs(self, col, row) -> int:
         count = 0
@@ -43,7 +58,7 @@ class BoardScreen(Screen):
             tile.text = str(self.count_nearby_bombs(col, row))
 
     def get_tile_at(self, col, row) -> Tile:
-        if row > self.ids.layout.rows or col > self.ids.layout.cols:
+        if row > self.ids.layout.rows - 1 or col > self.ids.layout.cols - 1:
             return None
         else:
             return self.tiles[col][row]
