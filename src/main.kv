@@ -31,8 +31,17 @@ WindowManager:
 <BoardScreen>:
     WhiteBackground:
 
-    GridLayout:
-        id: layout
+    BoxLayout:
+        orientation: "vertical"
+        Timer:
+            id: timer
+            size_hint: 1, None
+            height: dp(60)
+            font_size: dp(50)
+            color: 0, 0, 0, 1
+
+        GridLayout:
+            id: layout
 
 <MainScreen>:
     BoxLayout:

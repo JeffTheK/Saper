@@ -3,9 +3,12 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.button import Button
 from kivy.uix.image import Image
+from kivy.uix.label import Label
 from kivy.metrics import dp
 from kivy.config import Config
+from kivy.clock import Clock
 import random
+import datetime
 
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
@@ -15,6 +18,23 @@ class Score:
         self.bombs_count = bombs_count
         self.cleared_tiles = 0
         self.correctly_guessed_bombs = 0
+
+class Timer(Label):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.start_time = datetime.datetime.now()
+        Clock.schedule_interval(lambda _: self.update(), 1)
+
+    def update(self):
+        self.elapsed_time = datetime.datetime.now() - self.start_time
+        s = self.elapsed_time.seconds
+        hours, remainder = divmod(s, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        self.text = '{:02}:{:02}'.format(int(minutes), int(seconds))
+
+    def start(self):
+        self.start_time = datetime.datetime.now()
+        self.text = "00:00"
 
 class ScoreScreen(Screen):
     score: Score = None
@@ -51,6 +71,7 @@ class BoardScreen(Screen):
             self.tiles = []
         self.ids.layout.cols = cols
         self.ids.layout.rows = rows
+        self.ids.timer.start()
         self.bomb_chance = bomb_chance
         bombs_count = 0
         for col in range(cols):
@@ -129,7 +150,7 @@ class BoardScreen(Screen):
         tile.is_revealed = True
         if tile.is_bomb:
             tile.background_color = (1, 0, 0, 1)
-            tile.parent.parent.on_game_over()
+            App.get_running_app().root.get_screen("board").on_game_over()
         else:
             self.reveal_non_bomb_tile(col, row)
 
