@@ -59,6 +59,7 @@ class BoardScreen(Screen):
                     bombs_count += 1
                 tile = Tile(is_bomb)
                 tile.bind(on_touch_down=lambda _, touch, c=col, r=row: self.on_tile_touch_down(c, r, touch))
+                tile.text = str(col) + " " + str(row)
                 self.tiles[col].append(tile)
                 self.ids.layout.add_widget(tile)
         self.score = Score(cols * rows, bombs_count)
@@ -82,14 +83,22 @@ class BoardScreen(Screen):
             self.score.correctly_guessed_bombs += 1
 
     def count_nearby_bombs(self, col, row) -> int:
+        print("kek" + str(col) + " " + str(row))
         count = 0
-        positions = [(col + 1, row), (col - 1, row), (col, row + 1), (col, row - 1),
-        (col + 1, row + 1), (col - 1, row - 1), (col + 1, row - 1), (col - 1, row + 1)]
+        positions = [
+            (col + 1, row),
+            (col - 1, row),
+            (col, row + 1),
+            (col, row - 1),
+            (col + 1, row + 1),
+            (col - 1, row - 1),
+            (col + 1, row - 1),
+            (col - 1, row + 1)]
         for pos in positions:
+            print(pos)
             if self.get_tile_at(pos[0], pos[1]) != None and self.get_tile_at(pos[0], pos[1]).is_bomb:
                 count += 1
 
-        print(count)
         return count
     
     def reveal_non_bomb_tile(self, col, row):

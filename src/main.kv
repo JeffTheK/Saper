@@ -53,7 +53,7 @@ WindowManager:
                 font_size: global_font_size1
             TextInput:
                 id: height_input
-                text: "9"
+                text: "10"
                 font_size: global_font_size1
         BoxLayout:
             orientation: "horizontal"
@@ -67,7 +67,7 @@ WindowManager:
         Button:
             text: "New Game"
             font_size: global_font_size1
-            on_press: app.root.current = "board"; app.root.get_screen("board").setup(int(width_input.text), int(height_input.text), int(bomb_chance_input.text))
+            on_press: app.root.current = "board"; app.root.get_screen("board").setup(int(height_input.text), int(width_input.text), int(bomb_chance_input.text))
 
 <ScoreScreen>:
     BoxLayout:
