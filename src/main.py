@@ -40,7 +40,7 @@ class Timer(Label):
         self.start_time = datetime.datetime.now()
         self.text = "00:00"
 
-# Клас екрану резулбтату гри
+# Клас екрану результату гри
 class ScoreScreen(Screen):
     score: Score = None
 
