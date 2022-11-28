@@ -1,3 +1,5 @@
+#:set global_font_size1 dp(40)
+
 WindowManager:
     id: screen_manager
     MainScreen:
@@ -38,25 +40,32 @@ WindowManager:
             orientation: "horizontal"
             Label:
                 text: "width"
+                font_size: global_font_size1
             TextInput:
                 id: width_input
                 text: "5"
+                font_size: global_font_size1
         BoxLayout:
             orientation: "horizontal"
             Label:
                 text: "height"
+                font_size: global_font_size1
             TextInput:
                 id: height_input
                 text: "5"
+                font_size: global_font_size1
         BoxLayout:
             orientation: "horizontal"
             Label:
                 text: "bomb chance"
+                font_size: global_font_size1
             TextInput:
                 id: bomb_chance_input
                 text: "30"
+                font_size: global_font_size1
         Button:
             text: "New Game"
+            font_size: global_font_size1
             on_press: app.root.current = "board"; app.root.get_screen("board").setup(int(width_input.text), int(height_input.text), int(bomb_chance_input.text))
 
 <ScoreScreen>:
@@ -64,9 +73,16 @@ WindowManager:
         orientation: "vertical"
         Label:
             text: "Score"
+            font_size: global_font_size1
         Label:
             id: cleared_tiles_label
             text: "Cleared tiles"
+            font_size: global_font_size1
         Label:
             id: correctly_guessed_bombs_label
             text: "Correctly guessed bombs"
+            font_size: global_font_size1
+        Button:
+            text: "Return"
+            font_size: global_font_size1
+            on_press: app.root.current = "main"

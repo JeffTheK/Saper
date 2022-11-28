@@ -27,6 +27,10 @@ class BoardScreen(Screen):
     tiles = []
 
     def setup(self, cols, rows, bomb_chance):
+        if self.tiles != None:
+            for col in self.tiles:
+                for tile in col:
+                    self.ids.layout.remove_widget(tile)
         self.ids.layout.cols = cols
         self.ids.layout.rows = rows
         self.bomb_chance = bomb_chance
