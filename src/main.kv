@@ -33,6 +33,7 @@ WindowManager:
 
     BoxLayout:
         orientation: "vertical"
+        padding: dp(10), dp(10), dp(10), dp(10)
         Timer:
             id: timer
             size_hint: 1, None
@@ -42,6 +43,7 @@ WindowManager:
 
         GridLayout:
             id: layout
+            spacing: dp(5)
 
 <MainScreen>:
     BoxLayout:
@@ -49,7 +51,7 @@ WindowManager:
         BoxLayout:
             orientation: "horizontal"
             Label:
-                text: "width"
+                text: "Довжина"
                 font_size: global_font_size1
             TextInput:
                 id: width_input
@@ -58,7 +60,7 @@ WindowManager:
         BoxLayout:
             orientation: "horizontal"
             Label:
-                text: "height"
+                text: "Ширина"
                 font_size: global_font_size1
             TextInput:
                 id: height_input
@@ -67,14 +69,14 @@ WindowManager:
         BoxLayout:
             orientation: "horizontal"
             Label:
-                text: "bomb chance"
+                text: "Шанс бомби"
                 font_size: global_font_size1
             TextInput:
                 id: bomb_chance_input
                 text: "10"
                 font_size: global_font_size1
         Button:
-            text: "New Game"
+            text: "Грати"
             font_size: global_font_size1
             on_press: app.root.current = "board"; app.root.get_screen("board").setup(int(height_input.text), int(width_input.text), int(bomb_chance_input.text))
 
@@ -82,17 +84,17 @@ WindowManager:
     BoxLayout:
         orientation: "vertical"
         Label:
-            text: "Score"
+            text: "Статистика"
             font_size: global_font_size1
         Label:
             id: cleared_tiles_label
-            text: "Cleared tiles"
+            text: "Відкрито комірок"
             font_size: global_font_size1
         Label:
             id: correctly_guessed_bombs_label
-            text: "Correctly guessed bombs"
+            text: "Правильно позначані бомби"
             font_size: global_font_size1
         Button:
-            text: "Return"
+            text: "Назад"
             font_size: global_font_size1
             on_press: app.root.current = "main"

@@ -45,8 +45,8 @@ class ScoreScreen(Screen):
     score: Score = None
 
     def on_enter(self):
-        self.ids.cleared_tiles_label.text = f"Cleared tiles: {self.score.cleared_tiles}/{self.score.total_tiles - self.score.bombs_count}"
-        self.ids.correctly_guessed_bombs_label.text = f"Correctly guessed bombs: {self.score.correctly_guessed_bombs}/{self.score.bombs_count}"
+        self.ids.cleared_tiles_label.text = f"Відкрито комірок: {self.score.cleared_tiles}/{self.score.total_tiles - self.score.bombs_count}"
+        self.ids.correctly_guessed_bombs_label.text = f"Правильно позначані бомби: {self.score.correctly_guessed_bombs}/{self.score.bombs_count}"
 
 # Комірка яка може містити бомбу
 class Tile(Button):
