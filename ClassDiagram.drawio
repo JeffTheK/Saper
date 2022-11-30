@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-11-30T09:15:32.079Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="PXE5Ag2bIrkZKi4z9OM6" version="20.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-11-30T09:17:51.722Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" etag="YkxXw0StmMJOE3Fs6G-H" version="20.6.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1404" dy="799" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="2339" math="0" shadow="1">
+    <mxGraphModel dx="3510" dy="1998" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="2339" math="0" shadow="1">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -26,7 +26,7 @@
           <mxGeometry y="120" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-10" value="kivy.Button" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="300" y="60" width="140" height="90" as="geometry" />
+          <mxGeometry x="300" y="75" width="140" height="90" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-15" value="text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;rounded=0;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-10">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
@@ -47,16 +47,19 @@
           <mxGeometry y="90" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-20" value="kivy.Screen" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="780" y="75" width="140" height="60" as="geometry" />
+          <mxGeometry x="1300" y="60" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-41" value="on_enter()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-20">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-24" value="MainScreen" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="530" y="220" width="140" height="60" as="geometry" />
+          <mxGeometry x="1050" y="205" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-66" value="on_enter()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-24">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-28" value="BoardScreen" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="730" y="220" width="240" height="335" as="geometry" />
+          <mxGeometry x="1260" y="205" width="240" height="335" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-29" value="tiles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-28">
           <mxGeometry y="30" width="240" height="30" as="geometry" />
@@ -89,12 +92,36 @@
           <mxGeometry y="305" width="240" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-40" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#46495D;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="920" y="310" width="60" height="30" as="geometry" />
+          <mxGeometry x="1440" y="295" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-42" value="ScoreScren" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1050" y="225" width="140" height="60" as="geometry" />
+          <mxGeometry x="1570" y="210" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eKo_IfHTDwnpA7URWWFP-43" value="on_enter()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-42">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-46" value="kivy.App" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-64" value="run()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-46">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-50" value="MainApp" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="240" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-65" value="run()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-50">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-54" value="kivy.ScreenManager" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="740" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-63" value="current" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-54">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-58" value="WindowManager" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#788AA3;fontColor=#46495D;fillColor=#B2C9AB;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="740" y="235" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKo_IfHTDwnpA7URWWFP-59" value="current" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontColor=#46495D;" vertex="1" parent="eKo_IfHTDwnpA7URWWFP-58">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
       </root>
