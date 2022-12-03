@@ -176,6 +176,7 @@ class BoardScreen(Screen):
                 if self.get_tile_at(pos[0], pos[1]) != None:
                     self.reveal_non_bomb_tile(pos[0], pos[1])
         self.score.cleared_tiles += 1
+        self.check_for_win()
     
     # Викликається коли гравець натиснув і хоче відкрити комірку
     def reveal_tile(self, col, row):
@@ -192,6 +193,18 @@ class BoardScreen(Screen):
             return None
         else:
             return self.tiles[col][row]
+
+    # Перевіряє на виграш
+    def check_for_win(self):
+        print(self.score.bombs_count)
+        print(self.score.cleared_tiles)
+        if (self.score.cleared_tiles + self.score.bombs_count == self.score.total_tiles):
+            self.on_win()
+            
+    # Викликається при виграші
+    def on_win(self):
+        App.get_running_app().root.get_screen("score").score = self.score
+        App.get_running_app().root.current = "score"
 
     # Викликається при поразці
     def on_game_over(self):
