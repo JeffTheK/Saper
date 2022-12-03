@@ -11,6 +11,8 @@ import random
 import datetime
 
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+Config.set('graphics', 'width', '1000')
+Config.set('graphics', 'height', '720')
 
 # структура яка містить статистику гравця після перемоги/програшу
 class Score:
