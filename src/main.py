@@ -11,17 +11,6 @@ import random
 import datetime
 
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
-Config.set('graphics', 'width', '1000')
-Config.set('graphics', 'height', '720')
-
-class MyButton(Button):
-    pass
-
-class Difficulty:
-    def __init__(self, width, height, bomb_chance) -> None:
-        self.width = width
-        self.height = height
-        self.bomb_chance = bomb_chance
 
 class Score:
     def __init__(self, total_tiles, bombs_count) -> None:
@@ -188,7 +177,6 @@ class BoardScreen(Screen):
                 if self.get_tile_at(pos_) != None:
                     self.reveal_non_bomb_tile(pos_)
         self.score.cleared_tiles += 1
-        self.check_for_win()
     
     def reveal_tile(self, pos):
         tile = self.get_tile_at(pos)
@@ -207,15 +195,10 @@ class BoardScreen(Screen):
         if row > self.ids.layout.rows - 1 or col > self.ids.layout.cols - 1 or row < 0 or col < 0:
             return None
         else:
-            return self.tiles[pos]
+            return self.tiles[col][row]
 
-    def check_for_win(self):
-        print(self.score.bombs_count)
-        print(self.score.cleared_tiles)
-        if (self.score.cleared_tiles + self.score.bombs_count == self.score.total_tiles):
-            self.on_win()
-            
-    def on_win(self):
+    # Викликається при поразці
+    def on_game_over(self):
         App.get_running_app().root.get_screen("score").score = self.score
         App.get_running_app().root.current = "score"
 
